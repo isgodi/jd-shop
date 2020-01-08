@@ -3,8 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+	<style>
+		[v-clock] {
+			display: none;
+		}
+	</style>
+	<script>
+	  (function(){
+	    var baseFontSize = 100;
+	    var baseWidth = 375;
+	    var set = function(){
+	      var clientWidth = document.documentElement.clientWidth || window.innerWidth;
+	      var rem = 100;
+	      if(clientWidth != baseWidth){
+	        rem = Math.floor(clientWidth/baseWidth * baseFontSize);
+	      } 
+	      document.querySelector('html').style.fontSize = rem + 'px';
+	    }
+	    set();
+	    window.addEventListener('resize',set);
+	  })()
+	</script>
+	<!-- <script src="../src/jquery-2.1.4.min.js"></script>
+	<script>
+		$(".linkin").on('click',function(){
+			alert(123);
+			$(this).css("color","red");
+		})
+	</script> -->
     <title>jd</title>
   </head>
   <body>
@@ -12,6 +40,6 @@
       <strong>We're sorry but jd doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+	
   </body>
 </html>
